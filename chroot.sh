@@ -1,5 +1,10 @@
 clear
 
+# edit /etc/pacman.conf file
+nano /etc/pacman.conf
+
+clear
+
 # timezone
 echo 'Example: Europe/Istanbul, Europe/Zurich, America/New_York'
 read -p 'Timezone: ' time_zone
