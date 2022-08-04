@@ -14,6 +14,7 @@ cfdisk $disk_selection
 
 clear
 lsblk
+echo ' '
 
 # format disk label
 read -p 'Root partition with /dev, /dev/???: ' root_partition
