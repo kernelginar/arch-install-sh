@@ -34,6 +34,6 @@ pacstrap /mnt base base-devel linux linux-headers linux-firmware git nano
 genfstab -U /mnt > /mnt/etc/fstab
 mount $boot_partition /mnt/boot/efi
 
-cp $(pwd)/chroot.py /mnt
+cp $(pwd)/chroot.sh /mnt
 arch-chroot /mnt /bin/bash
-rm -rf /mnt/chroot.py
+rm -rf /mnt/chroot.sh
