@@ -1,6 +1,9 @@
 #!/bin/sh
 clear
 
+# edit /etc/pacman.conf file
+nano /etc/pacman.conf
+
 # update mirrors
 pacman -Sy archlinux-keyring
 
