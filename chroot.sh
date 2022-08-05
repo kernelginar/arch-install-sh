@@ -1,3 +1,4 @@
+#!/bin/sh
 clear
 
 # edit /etc/pacman.conf file
