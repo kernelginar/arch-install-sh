@@ -24,7 +24,7 @@ echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
 clear
 
 # host
-read -p 'hostname: ' host_name
+read -p 'Hostname: ' host_name
 echo $host_name >> /etc/hostname
 
 echo '127.0.0.1       localhost' >> /etc/hosts
