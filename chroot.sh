@@ -37,6 +37,8 @@ clear
 echo 'Root password'
 passwd
 
+clear
+
 # packages
 pacman -Sy networkmanager
 systemctl enable NetworkManager
