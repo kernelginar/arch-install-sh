@@ -12,7 +12,7 @@ clear
 # disk configuration
 lsblk
 echo ' '
-read -p 'Select Disk: ' disk_selection
+read -p 'Select Disk with /dev, /dev/???: ' disk_selection
 cfdisk $disk_selection
 
 clear
