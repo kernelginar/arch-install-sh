@@ -55,6 +55,7 @@ clear
 
 # GRUB
 pacman -S grub efibootmgr os-prober
+clear
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id='Arch Linux'
 grub-mkconfig -o /boot/grub/grub.cfg
 sleep 3
