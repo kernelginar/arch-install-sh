@@ -56,13 +56,18 @@ clear
 # GRUB
 pacman -S grub efibootmgr os-prober
 clear
+
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id='Arch Linux'
+sleep 1
+clear
+
 grub-mkconfig -o /boot/grub/grub.cfg
 sleep 3
 clear
 
 # useradd
 read -p 'Username: ' user_name
+clear
 useradd -m -g users -G wheel,storage,power,audio,video,network -s /bin/bash $user_name
 echo $user_name 'password'
 passwd $user_name
