@@ -3,7 +3,7 @@
 ```shell
 cd ~ && git clone https://github.com/abdullah-rgb/arch-install-sh
 cd ~/arch-install-sh
-chmod +x *
+chmod +x *.sh
 ./arch-install.sh
 ```
 
