@@ -1,6 +1,6 @@
 # Usage arch-install.sh
 
-```shell
+```bash
 sudo su
 
 git clone https://github.com/abdullah-rgb/arch-install-sh ~/arch-install-sh
@@ -12,6 +12,6 @@ chmod +x *.sh
 
 # Usage chroot.sh
 
-```shell
+```bash
 ./chroot.sh
 ```
