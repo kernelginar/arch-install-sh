@@ -48,6 +48,7 @@ clear
 # root password
 echo 'Root password'
 passwd
+sleep 2
 
 clear
 

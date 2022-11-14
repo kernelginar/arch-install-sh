@@ -23,7 +23,12 @@ echo ' '
 read -p 'Root partition (Example: vda1, sda1, nvme0n1p1): ' root_partition
 mkfs.ext4 /dev/$root_partition
 mount /dev/$root_partition /mnt
+sleep 2
 
+clear
+
+lsblk
+echo ' '
 read -p 'Boot partition (Example: vda1, sda1, nvme0n1p1): ' boot_partition
 mkfs.fat -F32 /dev/$boot_partition
 mkdir -p /mnt/boot/efi
@@ -37,6 +42,6 @@ pacstrap /mnt base base-devel linux linux-headers linux-firmware git nano
 genfstab -U /mnt > /mnt/etc/fstab
 mount /dev/$boot_partition /mnt/boot/efi
 
-cp $(pwd)/chroot.sh /mnt
+cp $(pwd)/chroot /mnt
 arch-chroot /mnt /bin/bash
-rm -rf /mnt/chroot.sh
+rm -rf /mnt/chroot
