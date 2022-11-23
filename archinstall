@@ -36,7 +36,7 @@ mkdir -p /mnt/boot/efi
 clear
 
 # install base packages
-pacstrap /mnt base base-devel linux linux-headers linux-firmware git nano
+pacstrap -i /mnt base base-devel linux linux-headers linux-firmware git nano
 
 # create fstab file
 genfstab -U /mnt > /mnt/etc/fstab
