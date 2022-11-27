@@ -1,4 +1,4 @@
-# Usage arch-install.sh
+# Usage archinstall
 
 ```bash
 sudo su
@@ -9,7 +9,7 @@ cd ~/arch-install-sh
 ./archinstall
 ```
 
-# Usage chroot.sh
+# Usage chroot
 
 ```bash
 ./chroot
