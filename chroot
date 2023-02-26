@@ -1,12 +1,12 @@
-#!/usr/bin/bash
+#!/bin/bash
 clear
 
-# edit /etc/pacman.conf file
+# Edit /etc/pacman.conf file
 nano /etc/pacman.conf
 
 clear
 
-# timezone
+# Timezone
 echo 'Example: Europe/Istanbul, Europe/Zurich, America/New_York'
 read -p 'Timezone: ' time_zone
 ln -sf /usr/share/zoneinfo/$time_zone /etc/localtime
@@ -35,17 +35,17 @@ fi
 
 clear
 
-# host
+# Hosts, hostname
 read -p 'Hostname: ' host_name
 echo $host_name >> /etc/hostname
 
-echo '127.0.0.1       localhost' >> /etc/hosts
-echo '::1             localhost' >> /etc/hosts
-echo '127.0.1.1       '$host_name'.localdomain     '$host_name >> /etc/hosts
+echo "127.0.0.1       localhost" >> /etc/hosts
+echo "::1             localhost" >> /etc/hosts
+echo "127.0.1.1       $host_name.localdomain     $host_name" >> /etc/hosts
 
 clear
 
-# root password
+# Root password
 echo 'Root password'
 passwd
 sleep 2
@@ -58,7 +58,7 @@ systemctl enable NetworkManager
 sleep 2
 clear
 
-# touchpad support
+# Touchpad Support
 pacman -S xf86-input-libinput
 sleep 2
 clear
@@ -81,7 +81,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 sleep 3
 clear
 
-# useradd
+# Add user
 read -p 'Username: ' user_name
 clear
 
@@ -93,3 +93,25 @@ sleep 2
 # sudo privileges
 EDITOR=nano visudo
 clear
+
+# Arch Install script backup
+read -p "Do you want to backup your Arch Install script? [y/n]: " backup_arch_install
+
+if [ $backup_arch_install == "y" ]; then
+    echo "Arch Install script is already saved in '/etc/skel/arch-install-backup' folder. No action was taken."
+    exit 0
+elif [ $backup_arch_install == "Y" ]; then
+    echo "Arch Install script is already saved in '/etc/skel/arch-install-backup' folder. No action was taken."
+    exit 0
+elif [ $backup_arch_install == "n" ]; then
+    rm -rfv /etc/skel/arch-install-backup 
+    echo "Arch Install script removed from '/etc/skel/arch-install-backup' folder"
+    exit 0
+elif [ $backup_arch_install == "N" ]; then
+    rm -rfv /etc/skel/arch-install-backup 
+    echo "Arch Install script removed from '/etc/skel/arch-install-backup' folder"
+    exit 0
+else
+    echo "By default Arch Install script is saved in '/etc/skel/arch-install-backup' folder. You have not selected any action. If you want to delete it, you can delete the '/etc/skel/arch-install-backup' folder"
+    exit 0
+fi

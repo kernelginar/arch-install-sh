@@ -1,15 +1,15 @@
-#!/usr/bin/bash
+#!/bin/bash
 clear
 
-# edit /etc/pacman.conf file
+# Edit /etc/pacman.conf file
 nano /etc/pacman.conf
-
-# update mirrors
-pacman -Sy archlinux-keyring
-
 clear
 
-# disk configuration
+# Update archlinux-keyring package
+pacman -Sy archlinux-keyring
+clear
+
+# Disk Configuration
 lsblk
 echo ' '
 read -p 'Select Disk (Example: vda, sda, nvme0n1): ' disk_selection
@@ -19,7 +19,7 @@ clear
 lsblk
 echo ' '
 
-# format disk label
+# Format disk label
 read -p 'Root partition (Example: vda1, sda1, nvme0n1p1): ' root_partition
 mkfs.ext4 /dev/$root_partition
 mount /dev/$root_partition /mnt
@@ -35,13 +35,21 @@ mkdir -p /mnt/boot/efi
 
 clear
 
-# install base packages
+# Install base arch linux packages
 pacstrap -i /mnt base base-devel linux linux-headers linux-firmware git nano
 
-# create fstab file
+# Create fstab file
 genfstab -U /mnt > /mnt/etc/fstab
 mount /dev/$boot_partition /mnt/boot/efi
+clear
 
-cp $(pwd)/chroot /mnt
+# Arch Install script backup
+mkdir -p /mnt/root/arch-install-backup
+cp -rv $(pwd)/archinstall /mnt/root/arch-install-backup
+cp -rv $(pwd)/chroot /mnt/root/arch-install-backup
+ln -s /mnt/root/arch-install-backup/chroot /mnt/chroot
+
+# Chroot Environment
 arch-chroot /mnt /bin/bash
+rm -rf /mnt/archinstall
 rm -rf /mnt/chroot
