@@ -98,20 +98,20 @@ clear
 read -p "Do you want to backup your Arch Install script? [y/n]: " backup_arch_install
 
 if [ $backup_arch_install == "y" ]; then
-    echo "Arch Install script is already saved in '/etc/skel/arch-install-backup' folder. No action was taken."
+    echo "Arch Install script is already saved in '/root/arch-install-backup' folder. No action was taken."
     exit 0
 elif [ $backup_arch_install == "Y" ]; then
-    echo "Arch Install script is already saved in '/etc/skel/arch-install-backup' folder. No action was taken."
+    echo "Arch Install script is already saved in '/root/arch-install-backup' folder. No action was taken."
     exit 0
 elif [ $backup_arch_install == "n" ]; then
-    rm -rfv /etc/skel/arch-install-backup 
-    echo "Arch Install script removed from '/etc/skel/arch-install-backup' folder"
+    rm -rfv /root/arch-install-backup 
+    echo "Arch Install script removed from '/root/arch-install-backup' folder"
     exit 0
 elif [ $backup_arch_install == "N" ]; then
-    rm -rfv /etc/skel/arch-install-backup 
-    echo "Arch Install script removed from '/etc/skel/arch-install-backup' folder"
+    rm -rfv /root/arch-install-backup 
+    echo "Arch Install script removed from '/root/arch-install-backup' folder"
     exit 0
 else
-    echo "By default Arch Install script is saved in '/etc/skel/arch-install-backup' folder. You have not selected any action. If you want to delete it, you can delete the '/etc/skel/arch-install-backup' folder"
+    echo "By default Arch Install script is saved in '/root/arch-install-backup' folder. You have not selected any action. If you want to delete it, you can delete the '/root/arch-install-backup' folder"
     exit 0
 fi

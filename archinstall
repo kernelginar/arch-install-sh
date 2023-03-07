@@ -47,7 +47,8 @@ clear
 mkdir -p /mnt/root/arch-install-backup
 cp -rv $(pwd)/archinstall /mnt/root/arch-install-backup
 cp -rv $(pwd)/chroot /mnt/root/arch-install-backup
-ln -s /mnt/root/arch-install-backup/chroot /mnt/chroot
+cd /mnt/
+ln -s root/arch-install-backup/chroot ./chroot
 
 # Chroot Environment
 arch-chroot /mnt /bin/bash
